@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../models/ingredients.model';
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-shopping-list',
@@ -16,6 +17,10 @@ export class ShoppingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleIngredientAdded(ingredient: Ingredient){
+    this.ingredients.push(ingredient)
   }
 
 }
