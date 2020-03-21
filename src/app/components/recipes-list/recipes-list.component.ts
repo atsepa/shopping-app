@@ -1,28 +1,18 @@
-import { Recipe } from '../../models/recipes.model';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Recipe } from "../../models/recipes.model";
+import { Component } from "@angular/core";
+import { RecipesService } from "src/app/services/recipes/recipes.service";
 
 @Component({
-  selector: 'app-recipes-list',
-  templateUrl: './recipes-list.component.html',
-  styleUrls: ['./recipes-list.component.scss']
+  selector: "app-recipes-list",
+  templateUrl: "./recipes-list.component.html",
+  styleUrls: ["./recipes-list.component.scss"]
 })
 export class RecipesListComponent {
+  recipes: Recipe[];
 
-  @Output() onRecipeDetail = new EventEmitter<Recipe>();
-
-  recipes : Recipe[] = [
-    new Recipe('Test','This is a test','https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/9/26/0/FNK_Tuscan-Chicken-Skillet_H2_s4x3.jpg.rend.hgtvcom.826.620.suffix/1537973085542.jpeg')
-  ]
-
-  constructor() { }
+  constructor(private recipeService: RecipesService) {}
 
   ngOnInit(): void {
-
+    this.recipes = this.recipeService.getRecipes();
   }
-
-  handelRecipeClick(recipe: Recipe){
-    console.log('handelRecipeClick', recipe)
-    this.onRecipeDetail.emit(recipe);
-  }
-
 }
