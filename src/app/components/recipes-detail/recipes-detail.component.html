@@ -1,34 +1,53 @@
 <div class="row">
-    <div class="col-xs-12">
-        <img [src]="details.imagePath" alt="" class="img-responsive" style="width:300px">
-    </div>
+  <div class="col-xs-12">
+    <img
+      alt=""
+      style="width:300px"
+      class="img-responsive"
+      [src]="details.imagePath"
+    />
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <h1>{{ details.name }}</h1>
-    </div>
+  <div class="col-xs-12">
+    <h1>{{ details.name }}</h1>
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <div class="btn-group" appDropdown>
-            <button class="btn btn-primary dropdown-toggle" type="button">Manage <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Add to Shopping list</a></li>
-                <li><a href="#">Edit Rrecipie</a></li>
-                <li><a href="#">Delete Rrecipie</a></li>
-            </ul>
-        </div>
+  <div class="col-xs-12">
+    <div class="btn-group" appDropdown>
+      <button class="btn btn-primary dropdown-toggle" type="button">
+        Manage <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#" (click)="onAddToShoppingList(details.ingredients)"
+            >Add to Shopping list</a
+          >
+        </li>
+        <li><a href="#">Edit Rrecipie</a></li>
+        <li><a href="#">Delete Rrecipie</a></li>
+      </ul>
     </div>
+  </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        {{ details.description }}
-    </div>
+  <div class="col-xs-12">
+    {{ details.description }}
+  </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        Ingredients
-    </div>
+  <div class="col-xs-12">
+    Ingredients5:
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let ingredient of details.ingredients"
+      >
+        {{ ingredient.name }} - {{ ingredient.amount }}
+      </li>
+    </ul>
+  </div>
 </div>

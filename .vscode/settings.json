@@ -1,0 +1,7 @@
+{
+    "prettier.arrayExpand": true,
+    "prettier.alignObjectProperties": true,
+    "prettier.jsxSingleQuote": true,
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.preferences.quoteStyle": "single"
+}
